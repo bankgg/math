@@ -83,7 +83,7 @@
                 <div class="settings-row">
                     <div class="form-check form-switch">
                         <input class="form-check-input" type="checkbox" id="includeAddSubtract" checked>
-                        <label class="form-check-label" for="includeAddSubtract">Include addition/subtraction</label>
+                        <label class="form-check-label" for="includeAddSubtract">Include +/-</label>
                     </div>
                     <div class="form-check form-switch">
                         <input class="form-check-input" type="checkbox" id="spellOut">
@@ -155,12 +155,12 @@
                     
                     // Convert symbols to words
                     const speakText = text
-                        .replace('×', '. times')
+                        .replace('×', 'times')
                         .replace('+', '. plus')
                         .replace('-', '. minus');
                     
                     const utterance = new SpeechSynthesisUtterance(speakText);
-                    utterance.rate = 0.7; // Slightly slower rate for better clarity
+                    utterance.rate = 0.6; // Slightly slower rate for better clarity
                     utterance.pitch = 1;
                     utterance.lang = 'en-US';
                     
