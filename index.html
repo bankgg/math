@@ -290,10 +290,14 @@
           // If EZ mode is checked, use the EZ question format:
           if ($("#ezMode").is(":checked")) {
             // Generate two random 3-digit numbers
-            const num1 = getRandomNumber(100, 999);
-            const num2 = getRandomNumber(100, 999);
+            let num1 = getRandomNumber(100, 999);
+            let num2 = getRandomNumber(100, 999);
             // Randomly choose plus or minus
             const operation = Math.random() < 0.5 ? " + " : " - ";
+            // If subtraction is chosen, swap if necessary to avoid negative result
+            if (operation === "-" && num1 < num2) {
+              [num1, num2] = [num2, num1];
+            }
             // Choose the multiplier from the array in order
             const multiplier = ezMultipliers[ezIndex];
             ezIndex = (ezIndex + 1) % ezMultipliers.length;
@@ -312,7 +316,6 @@
 
             if (includeAddSubtract) {
               const operation = Math.random() < 0.5 ? "+" : "-";
-              // For the non-EZ mode, the extra number is generated as before:
               const num3 =
                 operation === "+"
                   ? getRandomNumber(10, 999)
