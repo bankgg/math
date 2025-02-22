@@ -293,9 +293,9 @@
             let num1 = getRandomNumber(100, 999);
             let num2 = getRandomNumber(100, 999);
             // Randomly choose plus or minus
-            const operation = Math.random() < 0.5 ? " + " : " - ";
+            const operation = Math.random() < 0.5 ? "+" : "-";
             // If subtraction is chosen, swap if necessary to avoid negative result
-            if (operation === " - " && num1 < num2) {
+            if (operation === "-" && num1 < num2) {
               [num1, num2] = [num2, num1];
             }
             // Choose the multiplier from the array in order
@@ -307,7 +307,7 @@
             correctAnswer = intermediate * multiplier;
 
             // Format the question without spaces (e.g. "529-456*110")
-            currentQuestion = `${num1}${operation}${num2} × ${multiplier}`;
+            currentQuestion = `${num1} ${operation} ${num2} × ${multiplier}`;
           } else {
             // Standard question generation as before
             const num1 = getRandomNumber(10, 99);
