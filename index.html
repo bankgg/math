@@ -295,7 +295,7 @@
             // Randomly choose plus or minus
             const operation = Math.random() < 0.5 ? " + " : " - ";
             // If subtraction is chosen, swap if necessary to avoid negative result
-            if (operation === "-" && num1 < num2) {
+            if (operation === " - " && num1 < num2) {
               [num1, num2] = [num2, num1];
             }
             // Choose the multiplier from the array in order
